@@ -1,18 +1,14 @@
-USE CollegeDB;
+DELIMITER //
 
-DROP PROCEDURE IF EXISTS CalculateSum;
-
-DELIMITER $$
-
-CREATE PROCEDURE CalculateSum()
+CREATE PROCEDURE CheckResult(IN student_marks INT)
 BEGIN
-    -- Declare two variables
-    -- Assign values
-    -- Calculate and display the sum
-
-END $$
+    IF student_marks >= 40 THEN
+        SELECT 'PASS' AS Result;
+    ELSE
+        SELECT 'FAIL' AS Result;
+    END IF;
+END //
 
 DELIMITER ;
 
--- Execute the procedure
-CALL CalculateSum();
+CALL CheckResult(65);
