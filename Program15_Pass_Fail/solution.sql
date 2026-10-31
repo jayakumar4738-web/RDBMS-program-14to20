@@ -1,17 +1,19 @@
 USE CollegeDB;
 
-DROP PROCEDURE IF EXISTS CheckResult;
+DROP PROCEDURE IF EXISTS DisplayNumbers;
 
 DELIMITER $$
 
-CREATE PROCEDURE CheckResult(IN p_marks INT)
+CREATE PROCEDURE DisplayNumbers()
 BEGIN
+    DECLARE i INT DEFAULT 1;
 
-    -- Use IF-ELSE to check pass/fail
-
+    WHILE i <= 10 DO
+        SELECT i AS Number;
+        SET i = i + 1;
+    END WHILE;
 END $$
 
 DELIMITER ;
 
--- Test the procedure
-CALL CheckResult(75);
+CALL DisplayNumbers();
